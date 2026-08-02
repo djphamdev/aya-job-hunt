@@ -167,24 +167,97 @@ header .subtitle {
   border-color: var(--accent);
 }
 
-/* ===== Lead Cards (Expanded - All Details Inline) ===== */
+/* ===== Lead Cards (Cycle list on index) ===== */
 .lead-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .lead-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 20px;
+  padding: 18px 20px;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   cursor: default;
 }
 .lead-card:hover {
   border-color: var(--accent);
   box-shadow: var(--shadow);
+}
+
+/* Cycle list cards - styled as buttons with good contrast */
+.cycle-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  margin: 4px 8px 4px 0;
+}
+.cycle-card:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+.cycle-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.cycle-card .cycle-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.cycle-card .cycle-date {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.cycle-card .cycle-stats {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+.cycle-card:hover .cycle-stats {
+  opacity: 1;
+}
+.cycle-card .cycle-badge {
+  background: rgba(255,255,255,0.15);
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.cycle-card:hover .cycle-badge {
+  background: rgba(255,255,255,0.25);
+}
+
+/* For dark mode specifically - ensure cycle cards have enough contrast */
+[data-theme="light"] .cycle-card {
+  background: #f0f2f4;
+  border-color: #d0d7de;
+  color: #1f2328;
+}
+[data-theme="light"] .cycle-card:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+[data-theme="light"] .cycle-card .cycle-badge {
+  background: rgba(0,0,0,0.1);
+}
+[data-theme="light"] .cycle-card:hover .cycle-badge {
+  background: rgba(255,255,255,0.3);
 }
 
 .lead-card-header {

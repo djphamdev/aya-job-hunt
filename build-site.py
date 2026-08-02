@@ -127,18 +127,16 @@ def generate_index(cycles, total_leads):
 """)
     
     # All cycles list
-    html_parts.append('<h2 style="margin-bottom: 16px;">📅 All Search Cycles</h2>\n<div class="lead-list">\n')
+    html_parts.append('<h2 style="margin-bottom: 16px;">📅 All Search Cycles</h2>\n<div style="display: flex; flex-wrap: wrap; gap: 8px;">\n')
     for c in cycles:
         date_formatted = datetime.strptime(c['date'], '%Y-%m-%d').strftime('%A, %b %d, %Y')
         html_parts.append(f"""
-<a href="cycle-{c['date']}.html" class="lead-card">
-  <div class="lead-card-header">
-    <div>
-      <h3>{date_formatted}</h3>
-      <div class="company">{c['stats']['medium']} Medium fit · {c['stats']['low']} Low fit · {c['stats']['total']} scanned</div>
-    </div>
-    <span class="badge badge-medium">{c['stats']['medium']} Medium</span>
+<a href="cycle-{c['date']}.html" class="cycle-card">
+  <div class="cycle-meta">
+    <span class="cycle-date">{date_formatted}</span>
+    <span class="cycle-stats">{c['stats']['medium']} Medium · {c['stats']['low']} Low · {c['stats']['total']} scanned</span>
   </div>
+  <span class="cycle-badge">{c['stats']['medium']} Medium</span>
 </a>
 """)
     
