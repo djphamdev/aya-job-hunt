@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Aya's Remote Job Search - Clean Public View">
+<title>Job Leads — 2026-07-26 — AYA Search Job Hunt</title>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/main.js" defer></script>
+</head>
+<body>
+<header>
+  <div>
+    <h1>🔍 Leads from 2026-07-26</h1>
+    <div class="subtitle">0 Medium fit (Obsidian has drafts) · 0 Low fit · 176 total</div>
+  </div>
+  <button class="theme-toggle" id="themeToggle">☀️ Light</button>
+</header>
+
+<div class="filter-bar">
+  <label>Filter:</label>
+  <select id="fitFilter">
+    <option value="all">All Leads</option>
+    <option value="medium" selected>✉️ Medium Fit (Obsidian has drafts)</option>
+    <option value="high">⭐ High Fit</option>
+    <option value="low">📋 Low Fit (Worth Reviewing)</option>
+  </select>
+  <input type="text" id="searchFilter" placeholder="Search title or company...">
+</div>
+<div class="lead-list">
+</div>
+
+<div class="obsidian-note" style="margin-top: 24px;">
+  <strong>📝 Medium-fit leads have full email drafts in Obsidian.</strong> Click a lead to see the job link, fit analysis, and strengths/gaps.
+</div>
+
+<button id="backToTop" aria-label="Back to top">↑</button>
+<footer>
+  <p>AYA Search Job Hunt — Clean public view of remote job leads</p>
+  <p>Auto-generated from LinkedIn + freehire.me + career-ops • Updated: 2026-08-01 19:11</p>
+</footer>
+</body>
+</html>
