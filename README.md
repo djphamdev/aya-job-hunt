@@ -4,10 +4,9 @@
 
 Clean public view of remote job leads. **No PII, no email drafts.**
 
-## Site Structure
+## Site Structure (Flat - No 3rd Level)
 - `index.html` — Homepage with all search cycles
-- `cycle-YYYY-MM-DD.html` — Per-cycle lead listing
-- `leads/` — Individual lead pages with job link, fit analysis, strengths/gaps
+- `cycle-YYYY-MM-DD.html` — Per-cycle lead listing with ALL details inline
 - `assets/` — CSS and JavaScript (dark mode default, light toggle, back-to-top)
 
 ## Privacy
@@ -19,4 +18,4 @@ Clean public view of remote job leads. **No PII, no email drafts.**
 ## Update
 Run `python3 build-site.py` to regenerate from the latest evaluated leads in the Obsidian vault.
 
-Last built: 2026-08-01T19:14:12.017669
+Last built: 2026-08-01T19:35:48.540969

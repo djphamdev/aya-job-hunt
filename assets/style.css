@@ -167,23 +167,20 @@ header .subtitle {
   border-color: var(--accent);
 }
 
-/* ===== Lead Cards ===== */
+/* ===== Lead Cards (Expanded - All Details Inline) ===== */
 .lead-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .lead-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 18px 20px;
+  padding: 20px;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit;
-  display: block;
+  cursor: default;
 }
 .lead-card:hover {
   border-color: var(--accent);
@@ -195,17 +192,18 @@ header .subtitle {
   justify-content: space-between;
   align-items: flex-start;
   gap: 12px;
+  margin-bottom: 12px;
 }
 
 .lead-card h3 {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 4px;
 }
 
 .lead-card .company {
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   margin-bottom: 8px;
 }
 
@@ -242,98 +240,93 @@ header .subtitle {
 .badge-remote { background: rgba(63,185,80,0.15); color: var(--green); }
 .badge-jp { background: rgba(188,140,255,0.15); color: var(--purple); }
 .badge-domain { background: rgba(88,166,255,0.12); color: var(--accent); }
-.badge-edd { background: rgba(88,166,255,0.12); color: var(--accent); }
 
-/* ===== Lead Detail Page (clean - no personal info) ===== */
-.lead-detail {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 28px;
-  margin-bottom: 20px;
-}
-
-.lead-detail h1 {
-  font-size: 1.4rem;
-  margin-bottom: 8px;
-}
-.lead-detail .company-name {
-  font-size: 1.1rem;
-  color: var(--accent);
-  margin-bottom: 16px;
-}
-.lead-detail .badges-row {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-.lead-detail .badges-row .badge {
-  font-size: 0.8rem;
-  padding: 5px 14px;
-}
-
-.info-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px 24px;
-  margin: 20px 0;
-  padding: 16px;
-  background: var(--bg-secondary);
-  border-radius: 8px;
-}
-.info-grid .label {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-}
-.info-grid .value {
-  font-size: 0.95rem;
-  color: var(--text-primary);
-}
-.info-grid .value a {
-  color: var(--accent);
-  text-decoration: none;
-}
-.info-grid .value a:hover {
-  text-decoration: underline;
-}
-
-.section-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 24px 0 12px;
+/* Lead Details Section */
+.lead-details {
+  margin-top: 16px;
   padding-top: 16px;
   border-top: 1px solid var(--border-light);
 }
 
-.strengths-list, .gaps-list {
-  list-style: none;
-  padding: 0;
+.lead-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
 }
-.strengths-list li {
-  padding: 6px 0;
-  color: var(--green);
+.lead-detail-item {
+  background: var(--bg-secondary);
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+.lead-detail-item .label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+.lead-detail-item .value {
   font-size: 0.9rem;
+  color: var(--text-primary);
 }
-.strengths-list li::before {
-  content: "✓ ";
+.lead-detail-item .value a {
+  color: var(--accent);
+  text-decoration: none;
 }
-.gaps-list li {
-  padding: 6px 0;
-  color: var(--yellow);
-  font-size: 0.9rem;
-}
-.gaps-list li::before {
-  content: "⚠ ";
+.lead-detail-item .value a:hover {
+  text-decoration: underline;
 }
 
-/* Action buttons */
+/* Lists */
+.details-section {
+  margin: 16px 0;
+}
+.details-section-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.strengths-list, .gaps-list, .flags-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.strengths-list li, .gaps-list li, .flags-list li {
+  font-size: 0.82rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+.strengths-list li {
+  background: rgba(63,185,80,0.15);
+  color: var(--green);
+}
+.strengths-list li::before { content: "✓ "; }
+.gaps-list li {
+  background: rgba(210,153,34,0.15);
+  color: var(--yellow);
+}
+.gaps-list li::before { content: "⚠ "; }
+.flags-list li {
+  background: rgba(248,81,73,0.15);
+  color: var(--red);
+}
+.flags-list li::before { content: "🚩 "; }
+
+/* Action Button */
 .action-bar {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-  margin: 20px 0;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
 }
 .action-btn {
   display: inline-flex;
@@ -416,30 +409,6 @@ footer {
   font-size: 0.8rem;
 }
 
-/* ===== EDD Report Table ===== */
-.edd-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 16px 0;
-  font-size: 0.85rem;
-}
-.edd-table th {
-  text-align: left;
-  padding: 10px;
-  background: var(--bg-secondary);
-  border-bottom: 2px solid var(--border);
-  color: var(--text-secondary);
-  font-weight: 600;
-}
-.edd-table td {
-  padding: 10px;
-  border-bottom: 1px solid var(--border-light);
-  color: var(--text-primary);
-}
-.edd-table tr:hover td {
-  background: var(--bg-hover);
-}
-
 /* Obsidian note */
 .obsidian-note {
   background: rgba(88,166,255,0.1);
@@ -459,11 +428,9 @@ footer {
   body { padding: 0 10px 80px; }
   header { flex-direction: column; align-items: flex-start; }
   header h1 { font-size: 1.3rem; }
-  .info-grid { grid-template-columns: 1fr; }
-  .lead-card { padding: 14px; }
+  .lead-card { padding: 16px; }
+  .lead-details-grid { grid-template-columns: 1fr; }
   .stat-card { min-width: 100px; padding: 10px 14px; }
   .stat-card .num { font-size: 1.4rem; }
   #backToTop { bottom: 20px; right: 20px; width: 38px; height: 38px; }
-  .edd-table { font-size: 0.72rem; }
-  .edd-table th, .edd-table td { padding: 6px 4px; }
 }
