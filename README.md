@@ -18,4 +18,4 @@ Clean public view of remote job leads. **No PII, no email drafts.**
 ## Update
 Run `python3 build-site.py` to regenerate from the latest evaluated leads in the Obsidian vault.
 
-Last built: 2026-08-05T06:11:15.938330
+Last built: 2026-08-05T18:01:32.551803
