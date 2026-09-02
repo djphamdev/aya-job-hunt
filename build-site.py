@@ -121,6 +121,7 @@ def generate_index(cycles):
   </div>
   <div style="margin-top: 14px;">
     <a href="cycle-{latest['date']}.html" class="action-btn primary">View Latest Leads -></a>
+    <a href="ai-llm-direct-links.html" class="action-btn secondary" style="margin-left: 12px; background: linear-gradient(135deg, #0c4a6e 0%, #0ea5e9 100%); color: #fff; border-color: #0ea5e9;">AI / LLM Training (129 leads)</a>
   </div>
 </div>
 """)
