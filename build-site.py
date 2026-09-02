@@ -143,26 +143,32 @@ def generate_index(cycles):
     html_parts.append('</div>\n')
 
     # AI / LLM Training category page link
-    html_parts.append("""
+    html_parts.append(f"""
 <div style="margin-top: 32px;">
-  <h2 style="margin-bottom: 16px;">AI / LLM Training - New Category</h2>
-  <a href="ai-llm-training.html" class="cycle-card" style="background: linear-gradient(135deg, #0c4a6e 0%, #0ea5e9 100%); color: #fff; border-color: #0ea5e9;">
-    <div class="cycle-meta">
-      <span class="cycle-date" style="font-size: 1rem; font-weight: 600;">AI / LLM Training & Data Annotation</span>
-      <span class="cycle-stats">129 LLM leads - Bilingual JP/EN - Remote studio work</span>
+  <h2 style="margin-bottom: 16px;">🤖 AI / LLM Training — New Category</h2>
+      <a href="ai-llm-training.html" class="cycle-card" style="background: linear-gradient(135deg, #0c4a6e 0%, #0ea5e9 100%); color: #fff; border-color: #0ea5e9;">
+        <div class="cycle-meta">
+          <span class="cycle-date" style="font-size: 1rem; font-weight: 600;">AI / LLM Training & Data Annotation</span>
+          <span class="cycle-stats">129 LLM leads · Bilingual JP/EN · Remote studio work</span>
+        </div>
+        <span class="cycle-badge" style="background: rgba(255,255,255,0.25);">NEW</span>
+      </a>
+</div>
+    """)
+
+    # AI / LLM Best Shots page (entry-friendly remote)
+    html_parts.append(f"""
+    <div style="margin-top: 32px;">
+      <h2 style="margin-bottom: 16px;">🎯 AYA Best Shots</h2>
+      <a href="ai-llm-best-shots.html" class="cycle-card" style="background: linear-gradient(135deg, #059669 0%, #047857 100%); color: #fff; border-color: #047857;">
+        <div class="cycle-meta">
+          <span class="cycle-date" style="font-size: 1rem; font-weight: 600;">Entry + Remote AI / LLM</span>
+          <span class="cycle-stats">20 vetted remote roles · JP/EN friendly · Lowest scores needed</span>
+        </div>
+        <span class="cycle-badge" style="background: rgba(255,255,255,0.25);">CURATED</span>
+      </a>
     </div>
-    <span class="cycle-badge" style="background: rgba(255,255,255,0.25);">NEW</span>
-  </a>
-</div>
-""")
-    
-    # Note about Obsidian
-    html_parts.append("""
-<div class="obsidian-note">
-  <strong>Note for Aya:</strong> Full email drafts, EDD certification details, and personalized cover letters are in your Obsidian vault at <code>20-PROJECTS/ayako-job-search/leads/</code>. This public view shows only job links, employer info, and fit scores.
-</div>
-""")
-    
+    """)
     html_parts.append(HTML_FOOTER.format(updated=datetime.now().strftime('%Y-%m-%d %H:%M')))
     return ''.join(html_parts)
 
