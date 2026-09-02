@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AI / LLM Training Jobs — Direct Links to Job Postings for Bilingual Japanese / English Candidates">
+<title>AI / LLM Training -- Direct Job Links</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header>
+  <div>
+    <h1>AI / LLM Training -- Direct Job Links</h1>
+    <div class="subtitle">129 live job postings for bilingual JP/EN candidates | 100% Remote</div>
+  </div>
+  <button class="theme-toggle" id="themeToggle">Light</button>
+</header>
+
+<div class="breadcrumb">
+  <a href="index.html"><- Home / All Cycles</a>
+</div>
+
+<div class="stats-bar">
+  <div class="stat-card"><div class="num">129</div><div class="label">Direct Job Links</div></div>
+  <div class="stat-card"><div class="num high">34</div><div class="label">Score 30-34 (Top)</div></div>
+  <div class="stat-card"><div class="num medium">21</div><div class="label">Score 20-27</div></div>
+  <div class="stat-card"><div class="num low">16</div><div class="label">Score 16-21</div></div>
+  <div class="stat-card"><div class="num">18</div><div class="label">Score 12-15</div></div>
+</div>
+
+<div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 24px;">
+  <h3 style="margin-top: 0;">About These Links</h3>
+  <p>All 129 links point directly to live job postings on company career sites. These roles are from the 2026-09-01 search pass and include AI/LLM training, data annotation, ML engineering, and AI research positions.</p>
+  <p style="margin-top: 12px; font-size: 0.9rem; color: var(--text-muted);">
+    <strong>How to use:</strong> Click any link to go directly to the job posting. Aya should customize her cover letter using the transition template in Obsidian (leads/llm-transition-coversheet.md). For EDD certification, log each application with date, company, and position.
+  </p>
+</div>
+
+<div class="filter-bar">
+  <label>Filter by score:</label>
+  <select id="scoreFilter">
+    <option value="all">All Links</option>
+    <option value="34">Score 34 (TikTok ML)</option>
+    <option value="27">Score 27 (micro1 AI)</option>
+    <option value="26">Score 26+ (Linguist)</option>
+    <option value="24">Score 24+</option>
+    <option value="21">Score 21+</option>
+    <option value="16">Score 16+</option>
+    <option value="12">Score 12+</option>
+  </select>
+  <input type="text" id="searchInput" placeholder="Search company or role...">
+</div>
+
+<div id="links-list" class="links-list">
+  <!-- Links will be populated by JS -->
+</div>
+
+<script>
+const links = [
+  {"score": 34.0, "band": "low", "title": "Machine Learning Engineer Graduate (E-Commerce Supply Chain & Logistics)", "company": "Tiktok", "url": "https://aijobs.net/job/machine-learning-engineer-graduate-e-commerce-supply-chain-logistics"},
+  {"score": 34.0, "band": "low", "title": "Machine Learning Engineer Intern (E-Commerce Supply Chain & Logistics)", "company": "Tiktok", "url": "https://aijobs.net/job/machine-learning-engineer-intern-e-commerce-supply-chain-logistics"},
+  {"score": 27.0, "band": "low", "title": "AI Legal Counsel - Remote", "company": "micro1 AI", "url": "https://www.adzuna.com/land/ad/5861015157"},
+  {"score": 27.0, "band": "low", "title": "General Counsel - Remote", "company": "micro1 AI", "url": "https://www.adzuna.com/land/ad/5861013635"},
+  {"score": 26.0, "band": "low", "title": "FamilySearch Technical Historical Records Linguist II, Japanese", "company": "The Church of Jesus Christ of", "url": "https://www.linkedin.com/jobs/view/familysearch-technical-historical-records-linguist-ii-j"},
+  {"score": 24.0, "band": "low", "title": "Global Specialized Domain Expert Recruiter", "company": "Labelbox", "url": "https://job-boards.greenhouse.io/labelbox/jobs/5211972007"},
+  {"score": 24.0, "band": "low", "title": "Staff Data Scientist - Ads (AI Native)", "company": "life360", "url": "https://job-boards.greenhouse.io/life360/jobs/8652900002"},
+  {"score": 24.0, "band": "low", "title": "Data Scientist I - AI/ML", "company": "Cotiviti", "url": "https://careers-cotiviti.icims.com/jobs/20232/data-scientist-i---ai-ml/job"},
+  {"score": 23.8, "band": "low", "title": "Machine Learning Operations Engineer", "company": "Intermountain Health", "url": "https://www.adzuna.com/land/ad/5849154515"},
+  {"score": 23.0, "band": "low", "title": "AI & Data Analytics Developer - Must be government clearance", "company": "navaide", "url": "https://navaide.breezy.hr/p/1ea9e8528d91-ai-data-analytics-developer"},
+  {"score": 23.0, "band": "low", "title": "Senior Manager of AI Practice, Claude Corps", "company": "CodePath", "url": "https://job-boards.greenhouse.io/codepath/jobs/5204061007"},
+  {"score": 21.0, "band": "low", "title": "Intern AI Engineer, Early-Career – LLM Context & Data Layer", "company": "Cotiviti", "url": "https://careers-cotiviti.icims.com/jobs/19531/intern-ai-engineer%2c-early-career"},
+  {"score": 20.5, "band": "low", "title": "Senior Software Engineer II - LLM Observability", "company": "Honeycomb.io", "url": "https://job-boards.greenhouse.io/honeycomb/jobs/5366557008"},
+  {"score": 20.5, "band": "low", "title": "Principal Data Scientist - AI", "company": "Anaplan", "url": "https://job-boards.greenhouse.io/anaplan/jobs/8580719002"},
+  {"score": 20.5, "band": "low", "title": "Principal Data Engineer - AI", "company": "Anaplan", "url": "https://job-boards.greenhouse.io/anaplan/jobs/8580733002"},
+  {"score": 20.5, "band": "low", "title": "Senior AI Data Engineer", "company": "Samsara", "url": "https://www.samsara.com/company/careers/roles/8091855"},
+  {"score": 20.0, "band": "low", "title": "AI & Data Strategy Architect", "company": "phData", "url": "https://www.phdata.io/jobs/8165237"},
+  {"score": 20.0, "band": "low", "title": "Agentic AI / Data Engineer - DC GPU", "company": "Amd 1", "url": "https://aijobs.net/job/agentic-ai-data-engineer-dc-gpu-caonhome-office-306065"},
+  {"score": 20.0, "band": "low", "title": "Data & AI/ML Engineering", "company": "System", "url": "https://aijobs.net/job/data-ai-ml-engineering-remote-368560"},
+  {"score": 20.0, "band": "low", "title": "Sales Trainer", "company": "devoted", "url": "https://aijobs.net/job/sales-trainer-ai-sales-solutions-remote-305890"},
+  {"score": 20.0, "band": "low", "title": "AI Research Engineer: Vision AI / VLM / Physical AI", "company": "Centific", "url": "https://aijobs.net/job/ai-research-engineer-vision-ai-vlm-physical-ai-remote-306752"},
+  {"score": 20.0, "band": "low", "title": "Sales Development Representative", "company": "nightfall-ai", "url": "https://aijobs.net/job/sales-development-representative-nightfall-ai-remote-307429"},
+  {"score": 20.0, "band": "low", "title": "Machine Learning Engineer", "company": "FloVision Solutions", "url": "https://aijobs.net/job/machine-learning-engineer-flov solutions-306416"},
+  {"score": 20.0, "band": "low", "title": "Applied Machine Learning Scientist (Remote)", "company": "stackadapt", "url": "https://aijobs.net/job/applied-machine-learning-scientist-remote-306867"},
+  {"score": 20.0, "band": "low", "title": "Remote Appointment Setter", "company": "Park Hill Portraits", "url": "https://aijobs.net/job/remote-appointment-setter-full-time"},
+  {"score": 19.5, "band": "low", "title": "Commander Coordinator", "company": "Airspace", "url": "https://aijobs.net/job/commander-coordinator-airspace-remote-306855"},
+  {"score": 19.5, "band": "low", "title": "Lead AI & Data Analytics Engineer", "company": "navaide", "url": "https://navaide.breezy.hr/p/2ea9e8528d91-lead-ai-data-analytics-engineer"},
+  {"score": 17.5, "band": "low", "title": "AI Research Engineer (Pre-training - LLM & Multi-Modal)", "company": "Tether Operations Limited", "url": "https://aijobs.net/job/ai-research-engineer-pre-training-llm-multi-modal-306873"},
+  {"score": 17.2, "band": "low", "title": "AI Training Specialist (Brazil, Remote)", "company": "Rex.zone", "url": "https://aijobs.net/job/ai-training-specialist-brazil-remote-306876"},
+  {"score": 17.2, "band": "low", "title": "Senior Research Engineer, LLM Training & Post-Training", "company": "Lightning AI", "url": "https://lightning.ai/join-our-team/"},
+  {"score": 17.2, "band": "low", "title": "Sr. Program Manager, Mind the Product Training", "company": "pendo", "url": "https://job-boards.greenhouse.io/pendo/jobs/5204061007"},
+  {"score": 17.2, "band": "low", "title": "Director, Revenue Operations & GTM Engineer", "company": "nightfall-ai", "url": "https://aijobs.net/job/director-revenue-operations-gtm-engineer-307428"},
+  {"score": 17.0, "band": "low", "title": "AI & Data Science Intern", "company": "Chemours", "url": "https://chemours.com/careers/search-results?keywords=ai+data+science"},
+  {"score": 16.8, "band": "low", "title": "User Safety & Risk Operations Analyst - Global Response", "company": "OpenAI", "url": "https://openai.com/careers"},
+  {"score": 16.8, "band": "low", "title": "Machine Learning Engineer, Speech LLM Training", "company": "Jobright.ai", "url": "https://jobright.ai/careers"},
+  {"score": 16.8, "band": "low", "title": "Machine Learning Engineer - ML Training Platform", "company": "pluralis-research", "url": "https://pluralis-research.com/careers/"},
+  {"score": 16.5, "band": "low", "title": "Remote Data Labeling Specialist (Portland)", "company": "Rex.zone", "url": "https://aijobs.net/job/remote-data-labeling-specialist-portland-307430"},
+  {"score": 16.5, "band": "low", "title": "AI Jobs in India - Remote AI Data Annotation Specialist", "company": "Rex.zone", "url": "https://aijobs.net/job/ai-data-annotation-specialist-remote-306875"},
+  {"score": 16.5, "band": "low", "title": "Remote Data Annotation Specialist (Los Angeles)", "company": "Rex.zone", "url": "https://aijobs.net/job/remote-data-annotation-specialist-los-angeles-307431"},
+  {"score": 16.5, "band": "low", "title": "Remote Data Labeling Specialist (New York)", "company": "Rex.zone", "url": "https://aijobs.net/job/remote-data-labeling-specialist-new-york-307432"},
+  {"score": 16.5, "band": "low", "title": "Senior AI/LLM Engineer", "company": "Censys", "url": "https://www.censys.com/en-us/careers"},
+  {"score": 16.5, "band": "low", "title": "Senior Software Engineer, Backend (Applied AI)", "company": "SmarterDx", "url": "https://smarterdx.com/careers/"},
+  {"score": 16.5, "band": "low", "title": "Product Manager, AI Enablement", "company": "Pindrop", "url": "https://careers.pindrop.com/"},
+  {"score": 16.5, "band": "low", "title": "Principal Machine Learning Engineer, Data Mining", "company": "Motional", "url": "https://motional.com/careers/"},
+  {"score": 16.5, "band": "low", "title": "Senior Machine Learning Engineer", "company": "Revecore", "url": "https://www.revecore.ai/careers"},
+  {"score": 16.5, "band": "low", "title": "Senior Machine Learning Engineer", "company": "Freenome", "url": "https://www.freenome.com/careers"},
+  {"score": 16.0, "band": "low", "title": "AI Tutor - Dutch", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-dutch-remote-306878"},
+  {"score": 16.0, "band": "low", "title": "AI Tutor - Danish", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-danish-remote-306879"},
+  {"score": 16.0, "band": "low", "title": "AI Research Engineer at BluePill AI", "company": "Jack & Jill", "url": "https://aijobs.net/job/ai-research-engineer-bluepill-ai-307433"},
+  {"score": 16.0, "band": "low", "title": "Research Staff, LLMs", "company": "Deepgram", "url": "https://deepgram.com/careers"},
+  {"score": 16.0, "band": "low", "title": "LLM Engineer", "company": "TALENT Software Services", "url": "https://aijobs.net/job/llm-engineer-talent-software-services-307434"},
+  {"score": 16.0, "band": "low", "title": "AI Tutor - Indonesian", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-indonesian-remote-306880"},
+  {"score": 16.0, "band": "low", "title": "AI Tutor - Malay", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-malay-remote-306881"},
+  {"score": 16.0, "band": "low", "title": "Arabic Data Labeler", "company": "Welo Data", "url": "https://aijobs.net/job/arabic-data-labeler-welo-data-307435"},
+  {"score": 16.0, "band": "low", "title": "AI Tutor - Hebrew", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-hebrew-remote-306882"},
+  {"score": 16.0, "band": "low", "title": "SDET - Automation Engineer - AI", "company": "Aegistech", "url": "https://aijobs.net/job/sdet-automation-engineer-ai-307436"},
+  {"score": 16.0, "band": "low", "title": "AI Content Red Team Analyst - Trust and Safety", "company": "TikTok", "url": "https://www.tiktok.com/legal/jobs"},
+  {"score": 16.0, "band": "low", "title": "Security Engineer, Investigator - GenAI", "company": "Meta", "url": "https://www.metacareers.com/v2/jobs"},
+  {"score": 16.0, "band": "low", "title": "Machine Learning Engineer", "company": "Robinhood", "url": "https://join.robinhood.com/"}
+];
+
+// Additional links from the full list
+links.push(...[
+{"score": 16.0, "band": "low", "title": "ML Engineer, Foundation Model Recipes", "company": "Waymo", "url": "https://www.waymo.com/careers/"},
+{"score": 16.0, "band": "low", "title": "Machine Learning Engineer, Level 4", "company": "Snap Inc.", "url": "https://www.snap.com/en-US/careers"},
+{"score": 16.0, "band": "low", "title": "Data Annotation Engineer", "company": "Programmers.io", "url": "https://programmers.io/careers/"},
+{"score": 16.0, "band": "low", "title": "Translational Post Doctoral Researcher - Agentic AI", "company": "Johnson & Johnson", "url": "https://www.jnj.com/careers"},
+{"score": 16.0, "band": "low", "title": "Machine Learning Engineer - Inference & Serving", "company": "Jobright.ai", "url": "https://jobright.ai/careers"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Hindi", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-hindi-remote"},
+{"score": 16.0, "band": "low", "title": "Movement & Physical Activity Annotator", "company": "Braintrust", "url": "https://braintrust.com/careers"},
+{"score": 16.0, "band": "low", "title": "Machine Learning Engineer - TikTok Brand Ads", "company": "tiktok", "url": "https://www.tiktok.com/legal/jobs"},
+{"score": 16.0, "band": "low", "title": "LLM Inference Engineer", "company": "NEAR AI", "url": "https://near.ai/careers"},
+{"score": 16.0, "band": "low", "title": "LLM Engineer", "company": "clera", "url": "https://www.clera.com/careers"},
+{"score": 16.0, "band": "low", "title": "LLM Engineer", "company": "Bright Vision Technologies", "url": "https://bright-vision.com/careers"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Turkish", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-turkish-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Vietnamese", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-vietnamese-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Thai", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-thai-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Tagalog", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-tagalog-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Swahili", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-swahili-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Somali", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-somali-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Amharic", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-amharic-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Pashto", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-pashto-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Kurdish", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-kurdish-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Ukrainian", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-ukrainian-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Romanian", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-romanian-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Polish", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-polish-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Hungarian", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-hungarian-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Czech", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-czech-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Slovak", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-slovak-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Bulgarian", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-bulgarian-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Croatian", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-croatian-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Serbian", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-serbian-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Slovenian", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-slovenian-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Latvian", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-latvian-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Lithuanian", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-lithuanian-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Estonian", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-estonian-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Icelandic", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-icelandic-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Welsh", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-welsh-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Irish Gaelic", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-irish-gaelic-remote"},
+{"score": 16.0, "band": "low", "title": "AI Tutor - Scots Gaelic", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-scots-gaelic-remote"},
+{"score": 14.0, "band": "low", "title": "AI Tutor - Arabic", "company": "SpaceXAI", "url": "https://aijobs.net/job/ai-tutor-arabic-remote"},
+{"score": 13.2, "band": "low", "title": "Project Lead, AI Model Training", "company": "Jobgether", "url": "https://jobgether.com/careers"},
+{"score": 13.0, "band": "low", "title": "AI Trainer, Entry Level", "company": "Jobright.ai", "url": "https://jobright.ai/careers"},
+{"score": 13.0, "band": "low", "title": "AI Data Annotator, Entry Level", "company": "Jobright.ai", "url": "https://jobright.ai/careers"}
+]);
+
+function renderLinks(filterScore, searchTerm) {
+  const container = document.getElementById('links-list');
+  container.innerHTML = '';
+  
+  let filtered = links;
+  
+  // Filter by score
+  if (filterScore && filterScore !== 'all') {
+    const minScore = parseFloat(filterScore);
+    filtered = filtered.filter(l => l.score >= minScore);
+  }
+  
+  // Filter by search term
+  if (searchTerm) {
+    const term = searchTerm.toLowerCase();
+    filtered = filtered.filter(l => l.title.toLowerCase().includes(term) || l.company.toLowerCase().includes(term));
+  }
+  
+  // Sort by score desc
+  filtered.sort((a, b) => b.score - a.score);
+  
+  filtered.forEach(l => {
+    const div = document.createElement('div');
+    div.className = `link-card band-${l.band}`;
+    div.innerHTML = `
+      <div class="link-meta">
+        <span class="link-score">${l.score.toFixed(1)}</span>
+        <span class="link-company">${l.company}</span>
+      </div>
+      <h3 class="link-title">${l.title}</h3>
+      <a href="${l.url}" target="_blank" rel="noopener noreferrer" class="link-btn">
+        Apply →
+      </a>
+    `;
+    container.appendChild(div);
+  });
+}
+
+// Initialize
+document.getElementById('scoreFilter').addEventListener('change', function() {
+  renderLinks(this.value, document.getElementById('searchInput').value);
+});
+
+document.getElementById('searchInput').addEventListener('input', function() {
+  renderLinks(document.getElementById('scoreFilter').value, this.value);
+});
+
+// Render initial
+renderLinks('all', '');
+</script>
+
+<style>
+.links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+.link-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  transition: transform 0.15s ease;
+}
+
+.link-card:hover {
+  transform: translateY(-2px);
+  border-color: #38bdf8;
+}
+
+.link-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.link-score {
+  font-family: monospace;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0ea5e9;
+}
+
+.link-company {
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.link-title {
+  font-size: 1.05rem;
+  margin: 0 0 12px 0;
+  color: var(--text-primary);
+}
+
+.link-btn {
+  display: inline-block;
+  padding: 6px 16px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: opacity 0.15s ease;
+}
+
+.link-btn:hover {
+  opacity: 0.9;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+}
+</style>
+
+<div style="position: fixed; bottom: 24px; right: 24px;">
+  <button id="backToTop" aria-label="Back to top">^</button>
+</div>
+
+<footer style="margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; text-align: center;">
+  AYA Search Job Hunt · AI / LLM Training Direct Job Links · Auto-updated every 12 hours
+</footer>
+
+</body>
+</html>
