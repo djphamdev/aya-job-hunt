@@ -57,7 +57,7 @@ HTML_FOOTER = """
 def load_all_evaluated():
     """Load all evaluated JSON files from leads directory."""
     cycles = []
-    for json_file in sorted(LEADS_DIR.glob("*-evaluated.json")):
+    for json_file in sorted(LEADS_DIR.glob("*-evaluated.json"), reverse=True):
         date_str = json_file.stem.replace("-evaluated", "")
         try:
             data = json.loads(json_file.read_text())
